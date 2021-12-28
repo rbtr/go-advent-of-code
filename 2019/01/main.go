@@ -26,10 +26,8 @@ func one(d puzzle.Data) (string, error) {
 		return "", err
 	}
 	sum := 0
-	for i := 1; i < len(s); i++ {
-		if s[i-1] < s[i] {
-			sum++
-		}
+	for i := range s {
+		sum += (s[i] / 3) - 2
 	}
 	return strconv.Itoa(sum), nil
 }
@@ -39,11 +37,18 @@ func two(d puzzle.Data) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	sum := 0
-	for i := 1; i < len(s)-2; i++ {
-		if s[i-1]+s[i]+s[i+1] < s[i]+s[i+1]+s[i+2] {
-			sum++
+	for i := range s {
+		fuels := []int{}
+		mass := s[i]
+		for {
+			delta := (mass / 3) - 2
+			if delta <= 0 {
+				break
+			}
+			mass = delta
+			fuels = append(fuels, delta)
 		}
+		s[i] = series.Sum(fuels)
 	}
-	return strconv.Itoa(sum), nil
+	return strconv.Itoa(series.Sum(s)), nil
 }

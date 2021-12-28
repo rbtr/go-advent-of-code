@@ -2,14 +2,24 @@ package conversion
 
 import (
 	"strconv"
-
-	"github.com/pkg/errors"
 )
 
 func ParseInt(in []byte) (int, error) {
-	i, err := strconv.Atoi(string(in))
-	if err != nil {
-		return 0, errors.Wrap(err, "failed to parse string to int")
+	return strconv.Atoi(string(in))
+}
+
+func ParseSignedInts(in []byte) (int, error) {
+	str := string(in)
+	sign := 0
+	switch str[0] {
+	case '-':
+		sign = -1
+	default:
+		sign = 1
 	}
-	return i, nil
+	i, err := strconv.Atoi(str[1:])
+	if err != nil {
+		return 0, err
+	}
+	return i * sign, nil
 }

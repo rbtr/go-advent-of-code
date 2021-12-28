@@ -21,29 +21,30 @@ func main() {
 }
 
 func one(d puzzle.Data) (string, error) {
-	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseInt).Build()
+	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseSignedInts).Build()
 	if err != nil {
 		return "", err
 	}
-	sum := 0
-	for i := 1; i < len(s); i++ {
-		if s[i-1] < s[i] {
-			sum++
-		}
+	freq := 0
+	for i := range s {
+		freq += s[i]
 	}
-	return strconv.Itoa(sum), nil
+	return strconv.Itoa(freq), nil
 }
 
 func two(d puzzle.Data) (string, error) {
-	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseInt).Build()
+	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseSignedInts).Build()
 	if err != nil {
 		return "", err
 	}
-	sum := 0
-	for i := 1; i < len(s)-2; i++ {
-		if s[i-1]+s[i]+s[i+1] < s[i]+s[i+1]+s[i+2] {
-			sum++
+	freq := 0
+	freqs := map[int]any{}
+	for i := 0; ; i++ {
+		freq += s[i%len(s)]
+		if _, seen := freqs[freq]; seen {
+			break
 		}
+		freqs[freq] = nil
 	}
-	return strconv.Itoa(sum), nil
+	return strconv.Itoa(freq), nil
 }
