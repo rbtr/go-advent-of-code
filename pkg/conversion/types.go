@@ -36,3 +36,7 @@ var SplitCharacters Tokenizer = func(b []byte) [][]byte {
 	}
 	return out
 }
+
+var SplitWords Tokenizer = func(b []byte) [][]byte {
+	return StringsToBytes(strings.Split(string(b), " "))
+}

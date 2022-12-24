@@ -20,7 +20,7 @@ func main() {
 	}
 }
 
-func one(d puzzle.Data) (string, error) {
+func one(d puzzle.Raw) (string, error) {
 	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseInt).Build()
 	if err != nil {
 		return "", err
@@ -34,7 +34,7 @@ func one(d puzzle.Data) (string, error) {
 	return strconv.Itoa(sum), nil
 }
 
-func two(d puzzle.Data) (string, error) {
+func two(d puzzle.Raw) (string, error) {
 	s, err := series.New[int]().From(d).Split(conversion.SplitLines).Parse(conversion.ParseInt).Build()
 	if err != nil {
 		return "", err

@@ -17,10 +17,10 @@ func main() {
 	}
 }
 
-func one(d puzzle.Data) (string, error) {
+func one(d puzzle.Raw) (string, error) {
 	return "", nil
 }
 
-func two(d puzzle.Data) (string, error) {
+func two(d puzzle.Raw) (string, error) {
 	return "", nil
 }

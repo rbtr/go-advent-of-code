@@ -14,8 +14,10 @@ func ParseSignedInts(in []byte) (int, error) {
 	switch str[0] {
 	case '-':
 		sign = -1
+	case '+':
+		sign = -1
 	default:
-		sign = 1
+		return strconv.Atoi(str)
 	}
 	i, err := strconv.Atoi(str[1:])
 	if err != nil {

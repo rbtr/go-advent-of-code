@@ -1,10 +1,9 @@
 package series
 
 import (
-	"constraints"
-
 	"github.com/rbtr/go-aoc/pkg/conversion"
 	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"golang.org/x/exp/constraints"
 )
 
 func New[T any]() *builder[T] {
@@ -12,12 +11,12 @@ func New[T any]() *builder[T] {
 }
 
 type builder[T any] struct {
-	d     puzzle.Data
+	d     puzzle.Raw
 	split conversion.Tokenizer
 	parse conversion.Parser[T]
 }
 
-func (sb *builder[T]) From(d puzzle.Data) *builder[T] {
+func (sb *builder[T]) From(d puzzle.Raw) *builder[T] {
 	sb.d = d
 	return sb
 }
@@ -51,4 +50,31 @@ func Sum[T constraints.Ordered](in []T) T {
 		out += in[i]
 	}
 	return out
+}
+
+type Comparable[T comparable] interface {
+	Comparable() T
+}
+
+type Set[S comparable, T Comparable[S]] map[S]struct{}
+
+func (s Set[S, T]) Add(t T) {
+	s[t.Comparable()] = struct{}{}
+}
+
+func (s Set[S, T]) Remove(t T) {
+	delete(s, t.Comparable())
+}
+
+func (s Set[S, T]) Contains(t T) bool {
+	_, ok := s[t.Comparable()]
+	return ok
+}
+
+func (s Set[S, T]) Copy() Set[S, T] {
+	copy := Set[S, T]{}
+	for k := range s {
+		copy[k] = struct{}{}
+	}
+	return copy
 }
