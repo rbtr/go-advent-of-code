@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	common "github.com/rbtr/aoc2021"
+	common "github.com/rbtr/go-advent-of-code/2021"
 )
 
 func main() {
@@ -46,7 +46,7 @@ func reduce(matr [][]int) int {
 	return matr[len(matr)-1][len(matr[len(matr)-1])-1]
 }
 
-func one(puzzle []byte) (string, error) {
+func one(puzzle common.Data) (string, error) {
 	matr, err := common.ParseMatrix(puzzle)
 	matr[0][0] = 0
 	if err != nil {
@@ -125,7 +125,7 @@ func visit(current *Vert, grid [][]*Vert, unvisited *priorityq) {
 	}
 }
 
-func two(puzzle []byte) (string, error) {
+func two(puzzle common.Data) (string, error) {
 	matr, err := common.ParseMatrix(puzzle)
 	matr = tile(matr, 5)
 	matr[0][0] = 0

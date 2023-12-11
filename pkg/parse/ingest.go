@@ -3,7 +3,7 @@ package parse
 import (
 	"os"
 
-	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
 )
 
 const (

@@ -4,10 +4,10 @@ import (
 	"log"
 	"strconv"
 
-	"github.com/rbtr/go-aoc/pkg/conversion"
-	"github.com/rbtr/go-aoc/pkg/parse"
-	"github.com/rbtr/go-aoc/pkg/puzzle"
-	"github.com/rbtr/go-aoc/pkg/series"
+	"github.com/rbtr/go-advent-of-code/pkg/conversion"
+	"github.com/rbtr/go-advent-of-code/pkg/parse"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/series"
 )
 
 func main() {

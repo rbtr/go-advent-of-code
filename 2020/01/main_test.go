@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
 	"github.com/stretchr/testify/require"
 )
 

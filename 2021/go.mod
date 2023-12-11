@@ -1,6 +1,6 @@
-module github.com/rbtr/aoc2021
+module github.com/rbtr/go-advent-of-code/2021
 
-go 1.17
+go 1.21
 
 require (
 	github.com/pkg/errors v0.9.1

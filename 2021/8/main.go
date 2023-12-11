@@ -1,4 +1,4 @@
-//nolint
+// nolint
 package main
 
 import (
@@ -9,7 +9,7 @@ import (
 	"strconv"
 	"strings"
 
-	common "github.com/rbtr/aoc2021"
+	common "github.com/rbtr/go-advent-of-code/2021"
 )
 
 func main() {

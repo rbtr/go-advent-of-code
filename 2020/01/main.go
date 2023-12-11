@@ -3,8 +3,8 @@ package main
 import (
 	"log"
 
-	"github.com/rbtr/go-aoc/pkg/parse"
-	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/parse"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
 )
 
 func main() {

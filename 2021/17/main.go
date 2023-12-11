@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"strings"
 
-	common "github.com/rbtr/aoc2021"
+	common "github.com/rbtr/go-advent-of-code/2021"
 )
 
 func main() {
@@ -57,8 +57,8 @@ func triangle(n int) int {
 }
 
 func one(puzzle common.Data) (string, error) {
-	lines := puzzle.SplitLines()
-	target, err := parseTarget(lines[0])
+	lines, _ := common.SplitLines(puzzle)
+	target, err := parseTarget(lines[0][0])
 	if err != nil {
 		return "", err
 	}
@@ -94,8 +94,8 @@ func vxs(target Area, t int) []int {
 type XY common.XY
 
 func two(puzzle common.Data) (string, error) {
-	lines := puzzle.SplitLines()
-	target, err := parseTarget(lines[0])
+	lines, _ := common.SplitLines(puzzle)
+	target, err := parseTarget(lines[0][0])
 	if err != nil {
 		return "", err
 	}
@@ -112,7 +112,7 @@ func two(puzzle common.Data) (string, error) {
 	}
 
 	for vy := target.y0; vy > target.y1; vy-- {
-		t := t()
+		// t = t()
 	}
 	// fmt.Printf("%v", trajs)
 

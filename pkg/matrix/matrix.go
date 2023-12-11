@@ -1,8 +1,8 @@
 package matrix
 
 import (
-	"github.com/rbtr/go-aoc/pkg/conversion"
-	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/conversion"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
 )
 
 func FromData[T any](d puzzle.Data, splitRows conversion.Tokenizer, splitCols conversion.Tokenizer, parser conversion.Parser[T]) ([][]T, error) {

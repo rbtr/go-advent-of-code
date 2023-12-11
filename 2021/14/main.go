@@ -6,7 +6,7 @@ import (
 	"sort"
 	"strings"
 
-	common "github.com/rbtr/aoc2021"
+	common "github.com/rbtr/go-advent-of-code/2021"
 )
 
 func main() {
@@ -17,7 +17,7 @@ func main() {
 	common.Solve(puzzle, one, two)
 }
 
-func one(puzzle []byte) (string, error) {
+func one(puzzle common.Data) (string, error) {
 	lines, err := common.SplitLines(puzzle)
 	if err != nil {
 		return "", err
@@ -66,7 +66,7 @@ func one(puzzle []byte) (string, error) {
 	return fmt.Sprintf("%d", max-min), nil
 }
 
-func two(puzzle []byte) (string, error) {
+func two(puzzle common.Data) (string, error) {
 	lines, err := common.SplitLines(puzzle)
 	if err != nil {
 		return "", err

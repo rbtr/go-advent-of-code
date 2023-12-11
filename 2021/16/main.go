@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	common "github.com/rbtr/aoc2021"
+	common "github.com/rbtr/go-advent-of-code/2021"
 )
 
 func main() {
@@ -111,7 +111,7 @@ func parse(in []int, num int) (int, []packet) {
 	return n, packets
 }
 
-func one(puzzle []byte) (string, error) {
+func one(puzzle common.Data) (string, error) {
 	lines, err := common.SplitLines(puzzle)
 	if err != nil {
 		return "", err
@@ -150,7 +150,7 @@ func calc(packets []packet) int {
 	return out
 }
 
-func two(puzzle []byte) (string, error) {
+func two(puzzle common.Data) (string, error) {
 	lines, err := common.SplitLines(puzzle)
 	if err != nil {
 		return "", err

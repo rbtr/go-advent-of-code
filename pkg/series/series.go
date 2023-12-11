@@ -1,10 +1,9 @@
 package series
 
 import (
-	"constraints"
-
-	"github.com/rbtr/go-aoc/pkg/conversion"
-	"github.com/rbtr/go-aoc/pkg/puzzle"
+	"github.com/rbtr/go-advent-of-code/pkg/conversion"
+	"github.com/rbtr/go-advent-of-code/pkg/puzzle"
+	"golang.org/x/exp/constraints"
 )
 
 func New[T any]() *builder[T] {
