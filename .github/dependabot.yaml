@@ -4,7 +4,15 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    assignees:
+    reviewers:
       - "rbtr"
     commit-message:
       prefix: "deps"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    reviewers:
+      - "rbtr"
+    commit-message:
+      prefix: "ci"

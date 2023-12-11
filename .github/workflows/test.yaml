@@ -8,14 +8,14 @@ jobs:
   test:
     strategy:
       matrix:
-        go: [ '1.17.x' ]
+        go: [ '1.21.x' ]
         os: [ ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     name: Go ${{ matrix.go }} test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Setup go
-        uses: actions/setup-go@v2
+        uses: actions/setup-go@v4
         with:
           go-version: ${{ matrix.go }}
       - run: go test -race -v -covermode atomic -coverprofile coverage.out ./...
